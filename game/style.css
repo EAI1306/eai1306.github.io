@@ -1,0 +1,19 @@
+#game-container {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-canvas {
+    width: 100%;
+    height: calc(100% - 20px); /* Subtract space for scoreboard */
+    border: 1px solid black;
+}
+
+#scoreboard {
+    font-size: 24px;
+    margin-top: 10px;
+}

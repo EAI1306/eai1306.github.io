@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="font-size: 28px;">Efisha<span style="color: red;">AI</span> </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="game/index.html">Game</a>
+              </li>                 <li class="nav-item">
+                <a class="nav-link" href="bible/index.html">Quiz</a>
+              </li>              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-danger bold nav-link disabled" href="#" tabindex="-1" aria-disabled="true">No to Gumbling</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+<div class="wrapper">
+    <div class="main">
+        <h2 style="color: plum;"><span style="color: blue;">Reality</span> Imagination <span style="color: greenyellow;">Systems</span></h2>
+        <h1 id="result"></h1>
+        <button id="generateButton">Predicction</button>
+    </div>
+    <br>
+  
+</div>
+<footer>
+    <div class="footer">
+        <h5><span style="color: red;">Disclaimer</span> Use this application at owners Risk. All predictions are based on probability.</h5>
+    </div>
+</footer>
+<script>
+
+
+    const generateButton = document.getElementById('generateButton');
+const resultSpan = document.getElementById('result');
+
+generateButton.addEventListener('click', () => {
+  const randomNumber = generateRandomNumber(1, 300);
+  resultSpan.textContent = `${randomNumber.toFixed(2)}`;
+});
+
+function generateRandomNumber(min, max) {
+  // Higher bias factor increases the likelihood of lower numbers
+  const biasFactor = 3;
+
+  // Generate random value between 0 and 1
+  const randomValue = Math.random();
+
+  // Apply bias towards lower values using a power law distribution
+  const biasedValue = Math.pow(randomValue, biasFactor);
+
+  // Ensure the biased value doesn't exceed 1
+  const cappedBiasedValue = Math.min(biasedValue, 1);
+
+  // Scale the capped biased value to the desired range
+  const scaledValue = cappedBiasedValue * (max - min) + min;
+
+  return scaledValue;
+}
+
+</script>
+
+</body>
+</html>
